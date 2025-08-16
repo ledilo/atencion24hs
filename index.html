@@ -134,7 +134,7 @@
     </section>
 
     <footer>
-      Atención 24/7 · Soporte por WhatsApp · Cargas todo el día.
+      Atención 24/7 · Soporte por WhatsApp · Diseño azul/negro optimizado para móviles.
     </footer>
   </div>
 
@@ -145,6 +145,11 @@
     const MENSAJE_BASE = "¡Hola! Vengo por el aviso y quiero crear mi usuario.";
     // Enlaces por SRC -> wa.link (1,2,3)
     const WA_LINKS = { '1': 'https://wa.link/9gxjvv', '2': 'https://wa.link/swadep', '3': 'https://wa.link/fvymoj' };
+    // ====================================
+
+    // === Config Pixel: moneda/valor usados SOLO para el evento Lead ===
+    const PIXEL_CURRENCY = 'USD';         // tu cuenta está en USD
+    const PIXEL_VALUE = 1;                // valor ejemplo en USD (cámbialo si querés) 
     // ====================================
 
     // Pintar el mínimo de carga con formato local
@@ -183,7 +188,7 @@
         const q = new URLSearchParams(location.search);
         const scr = (q.get('src') || q.get('scr') || '1');
         if (window.fbq) {
-          fbq('track', 'Lead', { content_name: 'WhatsApp Click', src: scr });
+          fbq('track', 'Lead', { value: PIXEL_VALUE, currency: PIXEL_CURRENCY, content_name: 'WhatsApp Click', src: scr });
           // Pequeño delay para asegurar el envío del evento
           e.preventDefault();
           const url = this.href;
