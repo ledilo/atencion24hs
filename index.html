@@ -89,7 +89,9 @@
       const p1 = atob("aHR0cHM6Ly8=");
       const p2 = atob("d2EubWUv");
       const num = atob("NTQ5MjYxNTA0MDY2MQ==");
-      const url = p1 + p2 + num;
+      const msg = atob("UXVpZXJvIG1hcyBpbmZv"); // "Quiero mas info"
+const url = p1 + p2 + num + "?text=" + encodeURIComponent(msg);
+
 
       // evento
       if(window.fbq){
@@ -139,7 +141,7 @@
   </div>
 
   <!-- IMAGEN REAL -->
-  <img src="/img/photo1.png" class="main" />
+  <img src="/photo1.png" class="main" />
 
 </div>
 
