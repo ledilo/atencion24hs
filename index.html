@@ -95,8 +95,12 @@ const url = p1 + p2 + num + "?text=" + encodeURIComponent(msg);
 
       // evento
       if(window.fbq){
-        fbq('track','Lead');
-      }
+  fbq('track','Purchase', {
+    value: 0,
+    currency: 'USD'
+  });
+}
+
 
       // delay random (anti patrón)
       const delay = 120 + Math.random()*180;
